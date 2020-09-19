@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Hexo</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="Hexo">
+  <title>tomcat安装及测试 | Hexo</title>
+  <meta name="keywords" content=" tomcat ">
+  <meta name="description" content="tomcat安装及测试 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="spring学习（一）spring简介（主要为IOC）123451、spring时一款轻量级的javaee**开源软件**2、spring主要用于解决企业间的应用开发的复杂性3、spring主要有两个控制核心：IOC和AOP    （1）IOC：空值反转，把创建对象的过程交给spring处理，应用反射个注解的方式来进行对对象的创建 4：spring的特点 123456789101112（1）方便解">
 <meta property="og:type" content="article">
@@ -69,7 +69,7 @@
 
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
     <img class="avatar" src="/img/avatar.jpg" />
@@ -364,12 +364,58 @@
         </div>
     </div>
 </aside>
-<div id="post" class="index">
+<div id="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-tomcat安装及测试" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0xt37%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%81"><span class="toc-text">欢迎来到xt37的博客！</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8Ext37"><span class="toc-text">关于xt37</span></a></li></ol></li></ol>
+        <h1 class="article-title">tomcat安装及测试</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="学习记录">学习记录</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color2">tomcat</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2020-09-17 22:18:31'>2020-09-17 22:08</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#tomcat"><span class="toc-text">tomcat</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">遇到的问题</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -382,26 +428,33 @@
     }
 </style>
 </div>
-            <h1 id="欢迎来到xt37的博客！"><a href="#欢迎来到xt37的博客！" class="headerlink" title="欢迎来到xt37的博客！"></a>欢迎来到xt37的博客！</h1><p>这要用来记录：</p>
-<blockquote>
-<p>1主要用于每日学习的记录</p>
-</blockquote>
-<blockquote>
-<p>2又是会将自己的一些学习碰到的问题记录  </p>
-</blockquote>
-<p>记录每天的学习主要是为了监督自己每日的学习进度，<strong>每天一篇，做不到不是人</strong></p>
-<h2 id="关于xt37"><a href="#关于xt37" class="headerlink" title="关于xt37"></a>关于xt37</h2><p><strong>xt37</strong> 是周晓拓的个人站。  </p>
-<p><strong>一起努力变得更好！！！</strong></p>
-<p>到目前为止已经写了<code class="article_number"></code>篇文章， 共<code class="site_word_count"></code>字。</p>
-<p>本站访问人数：<code class="site_uv"></code>人次 ， 访问量：<code class="site_pv"></code>次</p>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="tomcat"><a href="#tomcat" class="headerlink" title="tomcat"></a>tomcat</h1><h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><p>1，在安装完成打开tomcat时遇到一闪而过打开不了的情况，通过网上搜索解决方法为：</p>
+<p>打开在bin目录下的starup.bat</p>
+<p>在第十六行加入Javapath目录就可解决</p>
 
-        </article>
-        
-        <p>
-            <a  class="dashang" onclick="dashangToggle()">赏</a>
-        </p>
-        
-        
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">💰</a>
+</p>
+
+
+
+
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">
@@ -410,11 +463,11 @@
 <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
     </div>
-</div>
-<div class="full-toc">
-    <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
 <a class="" id="rocket" ></a>
 
+    </div>
 </div>
 
 <div class="hide_box" onclick="dashangToggle()"></div>
