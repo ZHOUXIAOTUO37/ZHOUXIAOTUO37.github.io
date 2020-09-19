@@ -13,23 +13,23 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="spring学习（一）spring简介（主要为IOC）123451、spring时一款轻量级的javaee**开源软件**2、spring主要用于解决企业间的应用开发的复杂性3、spring主要有两个控制核心：IOC和AOP    （1）IOC：空值反转，把创建对象的过程交给spring处理，应用反射个注解的方式来进行对对象的创建 4：spring的特点 123456789101112（1）方便解">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="c:/Users/周晓拓/AppData/Roaming/Typora/typora-user-images/image-20200919001952620.png">
-<meta property="og:image" content="c:/Users/周晓拓/AppData/Roaming/Typora/typora-user-images/image-20200919002052142.png">
-<meta property="og:image" content="c:/Users/周晓拓/AppData/Roaming/Typora/typora-user-images/image-20200919002206339.png">
-<meta property="og:image" content="c:/Users/周晓拓/AppData/Roaming/Typora/typora-user-images/image-20200919003327033.png">
-<meta property="og:image" content="c:/Users/周晓拓/AppData/Roaming/Typora/typora-user-images/image-20200919003621574.png">
-<meta property="og:image" content="c:/Users/周晓拓/AppData/Roaming/Typora/typora-user-images/image-20200919003836661.png">
-<meta property="og:image" content="c:/Users/周晓拓/AppData/Roaming/Typora/typora-user-images/image-20200919004120549.png">
-<meta property="og:image" content="c:/Users/周晓拓/AppData/Roaming/Typora/typora-user-images/image-20200919004236721.png">
-<meta property="og:image" content="c:/Users/周晓拓/AppData/Roaming/Typora/typora-user-images/image-20200919004538798.png">
-<meta property="og:image" content="c:/Users/周晓拓/AppData/Roaming/Typora/typora-user-images/image-20200919005036116.png">
-<meta property="og:image" content="c:/Users/周晓拓/AppData/Roaming/Typora/typora-user-images/image-20200919005200107.png">
+<meta property="og:image" content="https://xiaotuo37.oss-cn-beijing.aliyuncs.com/images/user.PNG">
+<meta property="og:image" content="https://xiaotuo37.oss-cn-beijing.aliyuncs.com/images/xml%E9%85%8D%E7%BD%AE.PNG">
+<meta property="og:image" content="https://xiaotuo37.oss-cn-beijing.aliyuncs.com/images/%E5%88%9B%E5%BB%BAtest.PNG">
+<meta property="og:image" content="https://xiaotuo37.oss-cn-beijing.aliyuncs.com/images/%E5%9F%BA%E4%BA%8Exml%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1.PNG">
+<meta property="og:image" content="https://xiaotuo37.oss-cn-beijing.aliyuncs.com/images/set%E6%96%B9%E6%B3%95%E6%B3%A8%E5%85%A5.PNG">
+<meta property="og:image" content="https://xiaotuo37.oss-cn-beijing.aliyuncs.com/images/spring%E5%AF%B9%E8%B1%A1%E9%85%8D%E7%BD%AE.PNG">
+<meta property="og:image" content="https://xiaotuo37.oss-cn-beijing.aliyuncs.com/images/property.PNG">
+<meta property="og:image" content="https://xiaotuo37.oss-cn-beijing.aliyuncs.com/images/%E6%9C%89%E5%8F%82%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%88%9B%E5%BB%BA.PNG">
+<meta property="og:image" content="https://xiaotuo37.oss-cn-beijing.aliyuncs.com/images/spring%E9%85%8D%E7%BD%AE%E6%9C%89%E5%8F%82%E6%9E%84%E9%80%A0.PNG">
+<meta property="og:image" content="https://xiaotuo37.oss-cn-beijing.aliyuncs.com/images/spring%E9%85%8D%E7%BD%AE%E7%A9%BA%E5%80%BC.PNG">
+<meta property="og:image" content="https://xiaotuo37.oss-cn-beijing.aliyuncs.com/images/spring%E9%85%8D%E7%BD%AE%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6.PNG">
 <meta property="article:published_time" content="2020-09-18T15:47:37.000Z">
-<meta property="article:modified_time" content="2020-09-18T16:58:09.818Z">
+<meta property="article:modified_time" content="2020-09-19T05:37:19.502Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="spring">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="c:/Users/周晓拓/AppData/Roaming/Typora/typora-user-images/image-20200919001952620.png">
+<meta name="twitter:image" content="https://xiaotuo37.oss-cn-beijing.aliyuncs.com/images/user.PNG">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -393,7 +393,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2020-09-19 00:58:09'>2020-09-18 23:47</time>
+            Created At : <time class="date" title='Updated At: 2020-09-19 13:37:19'>2020-09-18 23:47</time>
         
     </div>
     <div class="article-meta">
@@ -443,11 +443,11 @@
 
 <h2 id="创建一个基本的spring类"><a href="#创建一个基本的spring类" class="headerlink" title="创建一个基本的spring类"></a>创建一个基本的spring类</h2><p>1、在idea项目中中导入spring的<code>bean</code>，context，<code>core</code>，expreion和<code>logging</code>四个jar包</p>
 <p>2、创建一个普通类</p>
-<p><img src="C:\Users\周晓拓\AppData\Roaming\Typora\typora-user-images\image-20200919001952620.png" alt="image-20200919001952620"></p>
+<p><img src="https://xiaotuo37.oss-cn-beijing.aliyuncs.com/images/user.PNG"></p>
 <p>3、配置xml文件 ，需要注意的是bean里面的<strong>id时可以随便取</strong>，<strong>value时自己创建的类的路径</strong></p>
-<p><img src="C:\Users\周晓拓\AppData\Roaming\Typora\typora-user-images\image-20200919002052142.png" alt="image-20200919002052142"></p>
+<p><img src="https://xiaotuo37.oss-cn-beijing.aliyuncs.com/images/xml%E9%85%8D%E7%BD%AE.PNG"></p>
 <p>4、创建test类，</p>
-<p><img src="C:\Users\周晓拓\AppData\Roaming\Typora\typora-user-images\image-20200919002206339.png" alt="image-20200919002206339"></p>
+<p><img src="https://xiaotuo37.oss-cn-beijing.aliyuncs.com/images/%E5%88%9B%E5%BB%BAtest.PNG"></p>
 <p><strong>综上，这就是一个基本的spring测试类，个人想法来说IOC方式就是通过使用xml配置通过反射的方式对想要常见的对象进行创建，这样可以降低耦合度，可以更加的方便</strong></p>
 <p>这就涉及到了一个问题，什么是IOC？</p>
 <h2 id="IOC（概念和原理）"><a href="#IOC（概念和原理）" class="headerlink" title="IOC（概念和原理）"></a>IOC（概念和原理）</h2><p>1、基本概念</p>
@@ -476,7 +476,7 @@
 
 
 <h4 id="基于xml方式管理"><a href="#基于xml方式管理" class="headerlink" title="基于xml方式管理"></a>基于xml方式管理</h4><p>1、基于xml方式创建对象</p>
-<p><img src="C:\Users\周晓拓\AppData\Roaming\Typora\typora-user-images\image-20200919003327033.png" alt="user对象"></p>
+<p><img src="https://xiaotuo37.oss-cn-beijing.aliyuncs.com/images/%E5%9F%BA%E4%BA%8Exml%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1.PNG"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">（1）在 spring 配置文件中，使用 bean 标签，标签里面添加对应属性，就可以实现对象创建 </span><br><span class="line"></span><br><span class="line">（2）在 bean 标签有很多属性，介绍常用的属性 * id 属性：唯一标识 * class 属性：类全路径（包类路径）</span><br><span class="line"></span><br><span class="line">（3）创建对象时候，默认也是执行无参数构造方法完成对象创建</span><br></pre></td></tr></table></figure>
 
 
@@ -488,26 +488,26 @@
 
 <p>3、使用set方式进行注入属性</p>
 <p>（1）创建类，定义属性和对应的set方法</p>
-<p><img src="C:\Users\周晓拓\AppData\Roaming\Typora\typora-user-images\image-20200919003621574.png" alt="set方式注入属性"></p>
+<p><img src="https://xiaotuo37.oss-cn-beijing.aliyuncs.com/images/set%E6%96%B9%E6%B3%95%E6%B3%A8%E5%85%A5.PNG"></p>
 <p>（2）在spring配置对象创建，配置属性注入</p>
-<p><img src="C:\Users\周晓拓\AppData\Roaming\Typora\typora-user-images\image-20200919003836661.png" alt="配置对象创建"></p>
+<p><img src="https://xiaotuo37.oss-cn-beijing.aliyuncs.com/images/spring%E5%AF%B9%E8%B1%A1%E9%85%8D%E7%BD%AE.PNG"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name:类里面的名称</span><br><span class="line">value：想属性注入的值</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\周晓拓\AppData\Roaming\Typora\typora-user-images\image-20200919004120549.png" alt="image-20200919004120549"></p>
+<p><img src="https://xiaotuo37.oss-cn-beijing.aliyuncs.com/images/property.PNG"></p>
 <p><strong>分析：无参的构造函数可以使用<code>property</code>进行xml文件的配置，直接进行name和value的配置</strong></p>
 <p>4、第二种注入方式，使用有参构造进行注入</p>
 <p>（1）创建有参的构造函数</p>
-<p><img src="C:\Users\周晓拓\AppData\Roaming\Typora\typora-user-images\image-20200919004236721.png" alt="image-20200919004236721"></p>
+<p><img src="https://xiaotuo37.oss-cn-beijing.aliyuncs.com/images/%E6%9C%89%E5%8F%82%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%88%9B%E5%BB%BA.PNG"></p>
 <p>（2）在Spring中进行配置</p>
-<p><img src="C:\Users\周晓拓\AppData\Roaming\Typora\typora-user-images\image-20200919004538798.png" alt="image-20200919004538798"></p>
+<p><img src="https://xiaotuo37.oss-cn-beijing.aliyuncs.com/images/spring%E9%85%8D%E7%BD%AE%E6%9C%89%E5%8F%82%E6%9E%84%E9%80%A0.PNG"></p>
 <p><strong>分析：没有无参构造函数时会报错，这时候需要使用<code>constructor-arg</code>进行配置，配置中和<code>property</code>的内容没有什么不同</strong></p>
 <h3 id="在Spring中注入空值和特殊字符的方式"><a href="#在Spring中注入空值和特殊字符的方式" class="headerlink" title="在Spring中注入空值和特殊字符的方式"></a>在Spring中注入空值和特殊字符的方式</h3><p>想要在Spring中注入空值的方式为</p>
-<p><img src="C:\Users\周晓拓\AppData\Roaming\Typora\typora-user-images\image-20200919005036116.png" alt="image-20200919005036116"></p>
+<p><img src="https://xiaotuo37.oss-cn-beijing.aliyuncs.com/images/spring%E9%85%8D%E7%BD%AE%E7%A9%BA%E5%80%BC.PNG"></p>
 <p>插入特殊字符的方式有两种：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(2)  属性值带有特殊符号</span><br><span class="line">    1，把&lt;&gt;进行转义</span><br><span class="line">    2，把带特殊符号的内容写道CDATA</span><br></pre></td></tr></table></figure>
 
 <p>第二种为</p>
-<p><img src="C:\Users\周晓拓\AppData\Roaming\Typora\typora-user-images\image-20200919005200107.png" alt="image-20200919005200107"></p>
+<p><img src="https://xiaotuo37.oss-cn-beijing.aliyuncs.com/images/spring%E9%85%8D%E7%BD%AE%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6.PNG"></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
