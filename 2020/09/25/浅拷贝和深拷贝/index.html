@@ -1,0 +1,169 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>浅拷贝和深拷贝 | Hexo</title><meta name="description" content="浅拷贝和深拷贝这次主要是对在设计模式的学习中接触的浅拷贝和深拷贝的初步了解，可能有错误，以后在慢慢完善 浅拷贝概念拷贝就是拷贝指向对象的指针，意思就是说：拷贝出来的目标对象的指针和源对象的指针指向的内存空间是同一块空间，浅拷贝只是一种简单的拷贝，让几个对象公用一个内存，然而当内存销毁的时候，指向这个内存空间的所有指针需要重新定义，不然会造成野指针错误 心得：从上面的概念来说，浅拷贝的主要意思就是，"><meta name="keywords" content="设计模式"><meta name="author" content="xt37"><meta name="copyright" content="xt37"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://zhouxiaotuo37.github.io/2020/09/25/%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="浅拷贝和深拷贝"><meta property="og:url" content="http://zhouxiaotuo37.github.io/2020/09/25/%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D/"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="浅拷贝和深拷贝这次主要是对在设计模式的学习中接触的浅拷贝和深拷贝的初步了解，可能有错误，以后在慢慢完善 浅拷贝概念拷贝就是拷贝指向对象的指针，意思就是说：拷贝出来的目标对象的指针和源对象的指针指向的内存空间是同一块空间，浅拷贝只是一种简单的拷贝，让几个对象公用一个内存，然而当内存销毁的时候，指向这个内存空间的所有指针需要重新定义，不然会造成野指针错误 心得：从上面的概念来说，浅拷贝的主要意思就是，"><meta property="og:image" content="http://zhouxiaotuo37.github.io/img/sanjin.jpg"><meta property="article:published_time" content="2020-09-25T15:20:52.000Z"><meta property="article:modified_time" content="2020-09-25T16:39:13.471Z"><meta name="twitter:card" content="summary"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  hexoversion: '5.1.1',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime: '',
+  date_suffix: {"one_hour":"刚刚","hours":"小时前","day":"天前"},
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+    },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isSidebar: true,
+  postUpdate: '2020-09-26 00:39:13'
+}</script><noscript><style type="text/css">
+#nav {
+  opacity: 1
+}
+.justified-gallery img {
+  opacity: 1
+}
+</style></noscript><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+  }
+}
+
+var autoChangeMode = 'false'
+var t = saveToLocal.get('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (saveToLocal.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><meta name="generator" content="Hexo 5.1.1"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/sanjin.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">5</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">5</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音樂</span></a></li><li><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 電影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><div id="sidebar"><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="toc-number">1.</span> <span class="toc-text">浅拷贝和深拷贝</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%85%E6%8B%B7%E8%B4%9D"><span class="toc-number">1.1.</span> <span class="toc-text">浅拷贝</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95"><span class="toc-number">1.1.2.</span> <span class="toc-text">代码测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="toc-number">1.2.</span> <span class="toc-text">深拷贝</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="toc-number">1.2.2.</span> <span class="toc-text">实现方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95-1"><span class="toc-number">1.2.3.</span> <span class="toc-text">代码测试</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%951%E2%80%93%E7%94%9F%E6%88%90%E6%9C%89%E5%8F%82%E7%9A%84%E6%9E%84%E9%80%A0%E5%8F%82%E6%95%B0"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">方法1–生成有参的构造参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%96%B9%E6%B3%951%E2%80%93%E7%BB%93%E8%AE%BA"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">深拷贝方法1–结论</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%952%E2%80%93%E9%80%9A%E8%BF%87%E9%87%8D%E5%86%99clone%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.3.3.</span> <span class="toc-text">方法2–通过重写clone方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E6%9D%9F%E8%AF%AD%EF%BC%9A"><span class="toc-number">1.3.</span> <span class="toc-text">结束语：</span></a></li></ol></li></ol></div></div></div><header class="post-bg" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Hexo</a></span><span id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音樂</span></a></li><li><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 電影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">浅拷贝和深拷贝</div></div><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-09-25T15:20:52.000Z" title="发表于 2020-09-25 23:20:52">2020-09-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-09-25T16:39:13.471Z" title="更新于 2020-09-26 00:39:13">2020-09-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/">学习心得</a></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h1 id="浅拷贝和深拷贝"><a href="#浅拷贝和深拷贝" class="headerlink" title="浅拷贝和深拷贝"></a>浅拷贝和深拷贝</h1><p>这次主要是对在设计模式的学习中接触的浅拷贝和深拷贝的初步了解，可能有错误，以后在慢慢完善</p>
+<h2 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>拷贝就是拷贝指向对象的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%8C%87%E9%92%88/2878304">指针</a>，意思就是说：拷贝出来的目标对象的指针和源对象的指针指向的内存空间是同一块空间，浅拷贝只是<strong>一种简单的拷贝</strong>，<strong>让几个对象公用一个内存</strong>，<strong>然而当内存销毁的时候，指向这个内存空间的所有指针需要重新定义</strong>，不然会造成野指针错误</p>
+<p>心得：从上面的概念来说，浅拷贝的主要意思就是，通过拷贝某一个对象的地址，让多个对象共同指向一个地址，然而这种情况下就会出现当某一个值改变时，所有的值都会改变，因为虽然经过多次的拷贝但是对象的地址并没有改变，指针指向的始终时同一个地址。</p>
+<h3 id="代码测试"><a href="#代码测试" class="headerlink" title="代码测试"></a>代码测试</h3><p>在类中定义Id和name两个变量然后生成他们的get和set方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">private  int id ;</span><br><span class="line">private  String name;</span><br><span class="line"></span><br><span class="line">public int getId() &#123;</span><br><span class="line">    return id;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public void setId(int id) &#123;</span><br><span class="line">    this.id &#x3D; id;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public String getName() &#123;</span><br><span class="line">    return name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public void setName(String name) &#123;</span><br><span class="line">    this.name &#x3D; name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后在主方法中调用方法并赋值然后生成test02等于test01，产生拷贝的效果</p>
+<p><img src="https://xiaotuo37.oss-cn-beijing.aliyuncs.com/images/%E6%B5%85%E6%8B%B7%E8%B4%9D01.PNG"></p>
+<p>运行一下输出结果</p>
+<p><img src="https://xiaotuo37.oss-cn-beijing.aliyuncs.com/images/print1.PNG"></p>
+<p>可以看到test01和test02的地址时一样，这代表着其实这两个对象指向的是一个地址，如果两个之中有一个改变了全部都会随着改变</p>
+<p>将test02的setname赋值为changge然后输出结果</p>
+<p><img src="https://xiaotuo37.oss-cn-beijing.aliyuncs.com/images/%E6%B5%85%E6%8B%B7%E8%B4%9D02.PNG"></p>
+<p>输出</p>
+<p><img src="https://xiaotuo37.oss-cn-beijing.aliyuncs.com/images/print2.PNG"></p>
+<p>可以看到随着一个对象的改变全部的变量都会随着改变，这就是浅拷贝的弊端，当其中一个值改变时全部的值都会改变，因为全都对象指向的都是同一个地址<strong>浅拷贝拷贝的是对象的地址，被拷贝对象和拷贝对象的地址是一样的，不论哪个的值被改变两个的值都会同时被改变</strong></p>
+<h2 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h2><h3 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h3><p>深拷贝是指源对象与拷贝对象互相独立，其中任何一个对象的改动都不会对另外一个对象造成影响</p>
+<p>个人理解：深拷贝就是赋值重新复制一个值，不同的地址，指向也不同所以不论怎么改变另外一个都不会随着改变</p>
+<p>1、赋值对下个你的所有基本数据类型的成员变量值</p>
+<p>2、为所有引用数据类型的成员变量申请存储空间，并复制每个引用数据类型成员变量所引用的对象，知道该对象可达的所有对象，对象进行深拷贝要对整个对象进行拷贝</p>
+<p>深拷贝是彻底拷贝了对象不再是同一个绑定的值，只能对基本的数据类型进行克隆，对对象不起作用 </p>
+<h3 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h3><p>1、重写clone（）方法来实现深拷贝</p>
+<p>2、通过对象序列化实现深拷贝</p>
+<h3 id="代码测试-1"><a href="#代码测试-1" class="headerlink" title="代码测试"></a>代码测试</h3><h4 id="方法1–生成有参的构造参数"><a href="#方法1–生成有参的构造参数" class="headerlink" title="方法1–生成有参的构造参数"></a>方法1–生成有参的构造参数</h4><p>1、生成一个有参都构造函数</p>
+<p><img src="https://xiaotuo37.oss-cn-beijing.aliyuncs.com/images/%E6%9C%89%E5%8F%82%E6%9E%84%E9%80%A0.PNG"></p>
+<p>输出getname方法地址</p>
+<p><img src="https://xiaotuo37.oss-cn-beijing.aliyuncs.com/images/print3.PNG"></p>
+<p>输出的结果为</p>
+<p><img src="https://xiaotuo37.oss-cn-beijing.aliyuncs.com/images/shuchujieguo.PNG"></p>
+<p>可以看到输出的结果和地址都不一样，如果我们改变其中某一个对象的name的值按照深拷贝的概念来说应该不会全部改变</p>
+<p><img src="https://xiaotuo37.oss-cn-beijing.aliyuncs.com/images/%E6%94%B9%E5%8F%98%E5%8F%82%E6%95%B0.PNG"></p>
+<p>输出结果为</p>
+<p><img src="https://xiaotuo37.oss-cn-beijing.aliyuncs.com/images/print4.PNG"></p>
+<p>可以清楚的看到因为地址不同所以即使改变了setname的值test01的name的值也不会改变</p>
+<h4 id="深拷贝方法1–结论"><a href="#深拷贝方法1–结论" class="headerlink" title="深拷贝方法1–结论"></a>深拷贝方法1–结论</h4><p>这是因为我们通过new方法创造了一个新的对象，并且给对象赋Id和name两个值，这就使得这是一个新的对象，指向了一个新的地址</p>
+<h4 id="方法2–通过重写clone方法"><a href="#方法2–通过重写clone方法" class="headerlink" title="方法2–通过重写clone方法"></a>方法2–通过重写clone方法</h4><p>这种方法要让test的方法实现<code>Cloneable</code>这个接口然后重写clone（）方法将protect改为public然后返回test类型的值，需要注意的是在返回的值中</p>
+<p>需要进行强制转换为test类型的值</p>
+<p><img src="https://xiaotuo37.oss-cn-beijing.aliyuncs.com/images/%E9%87%8D%E5%86%99clone.PNG"></p>
+<p>返回后在主函数创建test01并传入值之后就可以进行clone方法的使用并且输出</p>
+<p><img src="https://xiaotuo37.oss-cn-beijing.aliyuncs.com/images/clone.PNG"></p>
+<p>查看输出结果</p>
+<p><img src="https://xiaotuo37.oss-cn-beijing.aliyuncs.com/images/%E6%B7%B1%E6%8B%B7%E8%B4%9D.PNG"></p>
+<p>可以看到地址是不一样的，这就是通过重写clone（）方法将test01克隆从而实现深拷贝的效果</p>
+<h2 id="结束语："><a href="#结束语：" class="headerlink" title="结束语："></a>结束语：</h2><p>浅拷贝：<code>简单来说浅拷贝就是只拷贝地址，不管拷贝了几个指向的都是同一个地址</code></p>
+<p>深拷贝：深拷贝就是通过新建是对象指向不同的地址，但是深拷贝的缺点是: </p>
+<p><code>构造函数进行深拷贝：每次都要将多有的函数都传入每次都要进行new操作</code></p>
+<p><code>重写clone方法就相对而言比较简洁，并且可以将对象进行隔离但是只对基本数据类型起作用</code></p>
+<p>深拷贝可以还可以通过序列化类实现但是还没学到不知道，以后慢慢完善把</p>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">xt37</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://zhouxiaotuo37.github.io/2020/09/25/%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D/">http://zhouxiaotuo37.github.io/2020/09/25/%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://ZHOUXIAOTUO37.github.io" target="_blank">Hexo</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></div><div class="post_share"><div class="social-share" data-image="/img/sanjin.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2020/09/18/spring09-18/"><img class="next-cover" src="/" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">spring09_18</div></div></a></div></nav></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By xt37</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>
